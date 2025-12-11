@@ -5,7 +5,7 @@ using namespace std;
 namespace fs = std::filesystem;
 
 int main() {
-    cout << "=== Утилита для формирования перечня библиотек в CMake проекте ===" << endl;
+    cout << "Утилита для формирования перечня библиотек в CMake проекте" << endl;
     cout << "Введите путь к корневой директории CMake проекта: ";
 
     string project_path_str;
@@ -18,13 +18,9 @@ int main() {
         return 1;
     }
 
-    // Вызываем главный метод сканера
     set<string> unique_libraries = LibraryScanner::scan_project(project_path);
 
-    // --- Вывод результатов ---
-    cout << "\n================================================" << endl;
     cout << "Полный список уникальных используемых библиотек:" << endl;
-    cout << "================================================" << endl;
 
     if (unique_libraries.empty()) {
         cout << "Не найдено библиотек, определенных через FindPackage, FetchContent или target_link_libraries." << endl;
